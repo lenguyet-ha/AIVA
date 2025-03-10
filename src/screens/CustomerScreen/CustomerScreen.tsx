@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import { urlConfig } from "./ConfigTable";
 import { lang } from "@/src/constants/lang";
 import { postService } from "@/src/apiRequest/haList";
+import { fetchCustomer } from "@/src/apiRequest/customerList";
 // Định nghĩa kiểu dữ liệu cho cột
 type ColumnType = (typeof COLUMN_TYPE)[keyof typeof COLUMN_TYPE];
 
@@ -50,7 +51,7 @@ interface Paginator {
   nextPage: number | null;
 }
 
-const HaListScreen = React.memo(() => {
+const CustomerScreen = React.memo(() => {
   const router = useRouter();
   const [data, setData] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -65,10 +66,22 @@ const HaListScreen = React.memo(() => {
       columnType: COLUMN_TYPE.TEXT,
       required: true,
     },
-    { key: "title", label: "Tiêu dề", columnType: COLUMN_TYPE.TEXT },
+    { key: "type", label: "type", columnType: COLUMN_TYPE.TEXT },
     {
-      key: "body",
-      label: "Nội dung",
+      key: "goi",
+      label: "Gói",
+      columnType: COLUMN_TYPE.TEXT,
+      required: true,
+    },
+    {
+      key: "referral_code",
+      label: "REF CODE",
+      columnType: COLUMN_TYPE.TEXT,
+      required: true,
+    },
+    {
+      key: "email",
+      label: "REF CODE",
       columnType: COLUMN_TYPE.TEXT,
       required: true,
     },
@@ -146,7 +159,7 @@ const HaListScreen = React.memo(() => {
       const response = await postService.updatePost(rowData);
       if (response) {
         dispatch(showSuccessSnackBar("Cập nhật thành công"));
-        getListPost();
+        getListCustomer();
         return response;
       } else {
         dispatch(showErrorSnackBar("Cập nhật thất bại"));
@@ -213,7 +226,7 @@ const HaListScreen = React.memo(() => {
   };
   const handleRefresh = () => {
     setLoading(true);
-    getListPost();
+    getListCustomer();
   };
 
   const handleSearch = (value: string) => {
@@ -221,9 +234,9 @@ const HaListScreen = React.memo(() => {
     setSearchTxt(value);
   };
 
-  const getListPost = async () => {
+  const getListCustomer = async () => {
     try {
-      const responseData = await postService.fetchAllPosts(searchTxt);
+      const responseData = await fetchCustomer();
 
       if (Array.isArray(responseData)) {
         const startIndex = (currentPage - 1) * limit;
@@ -262,7 +275,7 @@ const HaListScreen = React.memo(() => {
   };
 
   useEffect(() => {
-    getListPost();
+    getListCustomer();
   }, [limit, currentPage, searchTxt]);
 
   return (
@@ -280,9 +293,9 @@ const HaListScreen = React.memo(() => {
         handleChangeCurrentPage={handleChangeCurrentPage}
         onSearch={handleSearch}
         urlVal={urlConfig}
-        isSearch={true}
+    
       />
     </div>
   );
 });
-export { HaListScreen };
+export { CustomerScreen };

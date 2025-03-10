@@ -641,6 +641,7 @@ const CustomerManagementScreen: React.FC = () => {
         <Box className={classes.tableWrapper}>
           <BaseMUITable
             columns={columns}
+            
             data={data}
             limit={limit}
             onRefresh={handleRefresh}
