@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3068:3068"
+    volumes:
+      - /add-disk/www/wedding/sandbox-web-wedding:/app
+    environment:
+      NODE_ENV: production
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

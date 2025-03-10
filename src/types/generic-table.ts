@@ -1,0 +1,32 @@
+export interface TABLE_OPTIONS_INTERFACE {
+  tableTitle?: string;
+  showGlobalFilter?: boolean;
+  showPagination?: boolean;
+  enableSorting?: boolean;
+  enableRowSelection: boolean;
+  enableExpanding?: boolean;
+  enableColumnResizing: boolean;
+  enableColumnOrdering: boolean;
+  enableColumnDragging: boolean;
+  enableEditing?: boolean;
+  enableTopToolbar?: boolean;
+  enableBottomToolbar?: boolean;
+  enableStickyHeader: boolean;
+  enablePagination: boolean;
+  showAddNewButton: boolean;
+  showExportExcelButton: boolean;
+  showRefreshButton: boolean;
+  hasSummaryRow?: boolean;
+  hasRowClickedEvent?: boolean;
+  selectedKeyName?: string;
+  parentIdName?: string;
+  useCurrentRecordId?: boolean;
+  checkerApprove?: boolean;
+  checkerTransApprove?: boolean;
+  checkerTransWorkApprove?: boolean;
+  checkerCancelAccountingEntry?: boolean;
+  isBtnApproveUpdate?: boolean;
+  defaultPageSize?: number;
+  defaultExpanded?: boolean;
+  approvedKey?: string;
+}

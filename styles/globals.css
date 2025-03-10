@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Black.ttf");
+  font-style: bold;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-ExtraBold.ttf");
+  font-style: bold;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Bold.ttf");
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-SemiBold.ttf");
+  font-style: medium;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Medium.ttf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Light.ttf");
+  font-style: thin;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-ExtraLight.ttf");
+  font-style: thin;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/Roboto-Thin.ttf");
+  font-style: thin;
+  font-weight: 100;
+  font-display: swap;
+}
+
+
+/*  -------  CSS SCROLLBAR ---------- */
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: transparent;
+    margin: 5px
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px var(--text-400);
+    /* //background-color: lighten(#F2F3F4, 20%); */
+}
+
+::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+}
+
+::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+}
+
+/* // --------- END CSS SCROLLBAR ---------- */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+  overflow: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  /* outline: 1px solid #a0a0a0; */
+  border-radius: 4px
+}
+/* ::-webkit-scrollbar-track {
+  outline: 1px solid #CFD6DD;
+  border-radius: 8px;
+  margin: 5
+} */
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+}
+.app-component-page {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.app-component-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.app-content {
+  width: 100vw;
+  height: calc(100vh - 57px);
+  display: flex;
+}
+.app-navigation {
+  height: 100%;
+  width: auto;
+}
+.app-component-page-content{
+  width: 100%;
+  height: calc(100vh - 57px);
+  overflow-y: scroll;
+  background-color: #F7F8F9;
+}
